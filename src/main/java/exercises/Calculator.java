@@ -4,6 +4,38 @@ import java.util.Scanner;
 
 public class Calculator {
 
+	interface Operation {
+		int opp(int a, int b);
+	}
+	
+	private int opperation (int a, int b, Operation opp) {
+		return opp.opp(a, b);
+	}
+	
+	public static void name() {
+		int a = 5;
+		int b = 6;
+		Operation add = (int c, int d) -> c + d;
+		Operation sub = (int c, int d) -> c - d;
+		Operation mul = (int c, int d) -> c * d;
+		Operation div = (int c, int d) -> c / d;
+		
+		Calculator calc = new Calculator();
+		add.opp(a, b);
+		sub.opp(a, b);
+		mul.opp(a, b);
+		div.opp(a, b);
+		
+		
+		calc.opperation(a, b, add);
+		calc.opperation(a, b, sub);
+		calc.opperation(a, b, mul);
+		calc.opperation(a, b, div);
+	}
+	
+	
+	
+	
 	public static int addition(int a, int b) {
 		return a + b;
 	}
